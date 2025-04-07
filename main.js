@@ -127,7 +127,7 @@ function addToCart(e) {
         });
     }
 
-    // Notificação de adicionado
+    // Notificação d adicionado
     showNotification(`${serviceName} adicionado ao orçamento!`);
 
     // Atualizar carrinho
