@@ -1,0 +1,377 @@
+/* Estilos Globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --accent-color: #e74c3c;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --text-color: #333;
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --shadow-strong: 0 12px 36px rgba(0, 0, 0, 0.15);
+}
+
+/* Posicionamento geral do header */
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.services-header {
+  display: flex;
+  justify-content: center; /* ou left, dependendo de onde você quer o título */
+  align-items: center;
+  margin-bottom: 50px; /* espaço entre o título e os cards */
+  margin-top: -40px;
+}
+
+.services-header h2 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 50px;
+  margin-top: -40px;
+  /* você pode adicionar outros estilos como font-size, color, etc. aqui */
+}
+
+.services-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* ou space-around, se preferir mais espaço entre os cards */
+  flex-wrap: nowrap; /* impede que os itens quebrem para a próxima linha */
+  gap: 20px; /* espaçamento entre os cards */
+  overflow-x: auto; /* permite rolagem horizontal em telas menores */
+}
+
+.service-card {
+  flex: 0 0 auto; /* impede que os cards encolham */
+  width: 23%; /* aproximadamente 1/4 do espaço, com um pouco de margem */
+  min-width: 250px; /* tamanho mínimo para garantir legibilidade */
+}
+
+/**/
+
+.trabalhos-header {
+  display: flex;
+  justify-content: center; /* ou left, dependendo de onde você quer o título */
+  align-items: center;
+  margin-bottom: 60px; /* espaço entre o título e os cards */
+  margin-top: -40px;
+}
+
+.trabalhos-header h2 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 60px;
+  margin-top: -40px;
+  /* você pode adicionar outros estilos como font-size, color, etc. aqui */
+}
+
+.trabalhos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* ou space-around, se preferir mais espaço entre os cards */
+  flex-wrap: nowrap; /* impede que os itens quebrem para a próxima linha */
+  gap: 20px; /* espaçamento entre os cards */
+  overflow-x: auto; /* permite rolagem horizontal em telas menores */
+}
+
+.trabalhos-overlay {
+  flex: 0 0 auto; /* impede que os cards encolham */
+  width: 23%; /* aproximadamente 1/4 do espaço, com um pouco de margem */
+  min-width: 250px; /* tamanho mínimo para garantir legibilidade */
+}
+
+.hero-section {
+ 
+  width: 100%;
+  height: 10vh; /* ocupa a altura toda da tela */
+  background-image: url('../images/9.avif'); /* ajusta o caminho se necessário */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* se tiver texto dentro */
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('images/9.avif'); /* Caminho para sua imagem */
+  background-size: cover; /* Faz a imagem cobrir todo o espaço disponível */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita repetição da imagem */
+}
+
+
+.container {
+  margin: 20px;
+}
+
+
+.content {
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente pra facilitar leitura */
+  max-width: 800px;
+  margin: 50px auto;
+  border-radius: 12px;
+}
+
+
+.titulo-sobre {
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Linha do topo */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* Centraliza os links + carrinho */
+.nav-center {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin: 0 auto;
+}
+
+/* Links do menu */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Ícone do carrinho */
+.cart-icon {
+  cursor: pointer;
+  position: relative;
+  font-size: 1.2rem;
+}
+
+/* Menu lateral (Mobile) */
+.menu-toggle {
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: block;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .nav-center {
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    height: 100%;
+    width: 250px;
+    padding-top: 5rem;
+    z-index: 99;
+    box-shadow: 2px 0 10px rgb(0,0,0,0.2);
+  }
+
+  .nav-links a {
+    margin: 1rem 0;
+  }
+
+  .nav-center.active {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #f5f5f5;
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+section {
+  padding: 100px 0;
+}
+
+h1, h2, h3, h4 {
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+}
+
+p {
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #555;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+}
+
+.btn-primary, .btn-secondary {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.btn-primary {
+  background: linear-gradient(to right, #3498db, #2980b9);
+  color: #fff;
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-strong);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-color);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Adicionais para deixar mais bonito */
+.section-title {
+  font-size: 36px;
+  margin-bottom: 40px;
+  text-align: center;
+  color: var(--secondary-color);
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent-color);
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.card {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-5px);
+}
+
+.grid {
+  display: grid;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+input, textarea {
+  padding: 12px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  outline: none;
+  transition: var(--transition);
+  font-size: 16px;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgb(52, 152, 219, 0.2);
+}
+
+.footer {
+  background-color: #000; /* faixa preta */
+  color: #fff; /* texto branco */
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+
