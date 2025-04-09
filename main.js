@@ -254,7 +254,7 @@ function requestQuote() {
     message += `\nValor Total: R$ ${total.toFixed(2)}\n\nObrigado!`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/5599999999999?text=${encodedMessage}`;
+    const whatsappURL = `https://wa.me/5534984295831?text=${encodedMessage}`;
 
     window.open(whatsappURL, '_blank');
 }
