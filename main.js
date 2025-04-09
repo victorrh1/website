@@ -1,4 +1,3 @@
-// Elementos do DOM
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 const cartModal = document.getElementById('carrinho');
@@ -11,56 +10,64 @@ const cartCount = document.getElementById('cart-count');
 const addToCartButtons = document.querySelectorAll('.add-to-cart');
 const contactForm = document.getElementById('contactForm');
 
-// Estado do carrinho
 let cart = [];
 
-// Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
     setupEventListeners();
     loadCartFromStorage();
     updateCartUI();
 });
 
-function setupEventListeners() {
-    // Menu Mobile
-    if (menuToggle) {
-        const navCenter = document.querySelector('.nav-center');
 
-        menuToggle.addEventListener('click', () => {
-            const isActive = navLinks.classList.toggle('active');
-            menuToggle.classList.toggle('open', isActive);
-            navCenter.classList.toggle('active', isActive);
+function setupEventListeners() {
+    if (menuToggle) {
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation(); 
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('open');
         });
-    
-        // Fechar menu ao clicar fora (em mobile)
+        
         document.addEventListener('click', (e) => {
-            if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+            if (navLinks.classList.contains('active') && 
+                !menuToggle.contains(e.target) && 
+                !navLinks.contains(e.target)) {
                 navLinks.classList.remove('active');
                 menuToggle.classList.remove('open');
             }
         });
+        
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('open');
+                }
+            });
+        });
     }
     
+    
+}
+    
 
-    // Botões de adicionar ao carrinho
     addToCartButtons.forEach(button => {
         button.addEventListener('click', addToCart);
     });
 
-    // Carrinho
+    // Fechar carrinho
     if (closeCart) {
         closeCart.addEventListener('click', () => {
-            cartModal.style.display = 'none';
+            cartModal.classList.remove('active');
         });
     }
 
     // Abrir carrinho
     document.querySelector('.cart-icon').addEventListener('click', (e) => {
         e.preventDefault();
-        cartModal.style.display = 'flex';
+        cartModal.classList.add('active');
     });
 
-    // Fechar carrinho ao clicar fora do modal
+    // Fechar carrinho fora do modal
     window.addEventListener('click', (e) => {
         if (e.target === cartModal) {
             cartModal.style.display = 'none';
@@ -85,10 +92,14 @@ function setupEventListeners() {
     // Scroll suave para links internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            if (this.getAttribute('href') !== '#carrinho') {
+            const href = this.getAttribute('href');
+            if (href === '#carrinho') {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                return
+            }
+                const target = document.querySelector(href);
                 if (target) {
+                    e.preventDefault();
                     const headerHeight = document.querySelector('header').offsetHeight;
                     const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
                     window.scrollTo({
@@ -98,13 +109,13 @@ function setupEventListeners() {
                     // Fechar menu mobile se estiver aberto
                     navLinks.classList.remove('active');
                 }
-            }
+            
         });
     });
 
     // Scroll da página para ativar elementos
     window.addEventListener('scroll', revealOnScroll);
-}
+
 
 // Funções do Carrinho
 function addToCart(e) {
@@ -243,7 +254,7 @@ function requestQuote() {
     message += `\nValor Total: R$ ${total.toFixed(2)}\n\nObrigado!`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/5599999999999?text=${encodedMessage}`; // Coloque seu número
+    const whatsappURL = `https://wa.me/5599999999999?text=${encodedMessage}`;
 
     window.open(whatsappURL, '_blank');
 }

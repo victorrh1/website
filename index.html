@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gustavo - Informatica</title>
-    <link rel="stylesheet" href="styles/styles.css.css" media="screen" />
+    <link rel="stylesheet" href="styles/styles.css" media="screen" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="top-bar">
+          <div class="menu-toggle" id="menu-toggle">
+            &#9776; Menu
+          </div>
           <div class="nav-center">
-            <nav class="nav-links">
+            <nav class="nav-links" id="nav-links">
               <a href="#inicio">Início</a>
               <a href="#sobre">Sobre</a>
               <a href="#servicos">Serviços</a>
@@ -20,7 +23,6 @@
             </nav>
             <div class="cart-icon">🛒 <span id="cart-count">0</span></div>
           </div>
-          <div class="menu-toggle">☰</div>
         </div>
       </header>
       
@@ -28,8 +30,7 @@
     <section id="inicio" class="hero-section">
             <div class="hero-image">
                 <div class="bg-scroll"> 
-                <img src="images/9.avif" alt="Gustavo" width="1420" height="220">
-            </div>
+                <img src="images/9.webp" alt="Gustavo" width="1420" height="220">
             </div>
         </div>
     </section>
@@ -44,18 +45,62 @@
             <div class="about-content">
                 <div class="about-image">
                     <div style="text-align:center">
-                    <img src="images/3.png"class="scroll" alt="Mais sobre o profissional"/>
+                    <img src="images/4.webp"class="scroll" alt="Mais sobre o profissional" width="500" height="600">
                 </div>
                 </div>
                 <div class="about-text">
-                    <p>Sou um profissional com [X anos] de experiência em [área de atuação]. Minha paixão é [descreva sua paixão relacionada ao trabalho].</p>
-                    <p>Formado em [formação], sempre busco me atualizar e oferecer as melhores soluções para meus clientes.</p>
-                    <div class="about-skills">
-                        <span class="skill-tag">Habilidade 1</span>
-                        <span class="skill-tag">Habilidade 2</span>
-                        <span class="skill-tag">Habilidade 3</span>
-                        <span class="skill-tag">Habilidade 4</span>
-                    </div>
+                    <p>Olá, me chamo Gustavo e trabalho com informática, mais especificamente com hardware, há mais de 15 anos. Sou aquele cara que cuida das peças e componentes, fazendo reparos, upgrades e garantindo que tudo funcione como deveria. Amo encontrar soluções práticas e resolver qualquer problema que apareça, sempre com o objetivo de deixar os equipamentos em plena forma.
+
+                    </p>
+                    <p>Estou sempre ligado nas novidades do mundo da tecnologia, principalmente quando se trata de hardware, porque as coisas mudam rápido. Além disso, gosto de conversar de forma simples e tranquila, para que todo mundo entenda o que está acontecendo com as máquinas e o que pode ser feito. Se precisar de alguém para cuidar do hardware e trazer resultados, conta comigo!</p>
+                    <!-- Cards -->
+        <div class="skills-card">
+            <div class="skills-header">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Minhas Habilidades</h3>
+            </div>
+            <div class="skills-container">
+            <div class="skill-item">
+                <div class="skill-icon">
+                <i class="fas fa-tools"></i>
+                </div>
+                <div class="skill-info">
+                <h4>Montagem e Manutenção</h4>
+                <p>Experiência em montagem, manutenção e upgrade de computadores desktop e servidores.</p>
+                </div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-icon">
+                <i class="fas fa-search"></i>
+                </div>
+                <div class="skill-info">
+                <h4>Diagnóstico de Hardware</h4>
+                <p>Identificação e resolução eficiente de falhas em componentes de hardware.</p>
+                </div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-icon">
+                <i class="fas fa-plug"></i>
+                </div>
+                <div class="skill-info">
+                <h4>Configuração de Periféricos</h4>
+                <p>Instalação e configuração de periféricos e dispositivos diversos de informática.</p>
+                </div>
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-icon">
+                <i class="fas fa-network-wired"></i>
+                </div>
+                <div class="skill-info">
+                <h4>Redes de Hardware</h4>
+                <p>Conhecimento em configuração e troubleshooting de redes básicas de hardware.</p>
+                </div>
+            </div>
+            </div>
+  </div>
                 </div>
             </div>
         </div>
@@ -119,6 +164,7 @@
             <div class="trabalhos-header">
                 <h2>Trabalhos</h2>
         </div>
+        <!-- Trabalho 1 -->
             <div class="trabalhos">
                 <div class="trabalhos-item">
                     <img src="images/portfolio1.jpg" alt="Foto 1">
@@ -128,7 +174,7 @@
                         <a href="#" class="btn-secondary">Ver Detalhes</a>
                     </div>
                 </div>
-                
+                <!-- Trabalho 2 -->
                 <div class="trabalhos-item">
                     <img src="images/portfolio2.jpg" alt="Foto 2">
                     <div class="trabalhos-overlay">
@@ -137,7 +183,7 @@
                         <a href="#" class="btn-secondary">Ver Detalhes</a>
                     </div>
                 </div>
-                
+                <!-- Trabalho 3 -->
                 <div class="trabalhos-item">
                     <img src="images/portfolio3.jpg" alt="Foto 3">
                     <div class="trabalhos-overlay">
@@ -146,7 +192,7 @@
                         <a href="#" class="btn-secondary">Ver Detalhes</a>
                     </div>
                 </div>
-                
+                <!-- Trabalho 4 -->
                 <div class="trabalhos-item">
                     <img src="images/portfolio4.jpg" alt="Foto 4">
                     <div class="trabalhos-overlay">
@@ -205,25 +251,32 @@
         </div>
     </section>
 
-    <!-- Modal o Carrinho -->
+    <!--Carrinho -->
     <div id="carrinho" class="cart-modal">
         <div class="cart-content">
-            <div style="text-align:center">
+          
+          <div class="cart-header">
             <span class="close-cart">&times;</span>
             <h2>Seu Orçamento</h2>
+          </div>
+      
+          <div class="cart-items-wrapper">
             <div class="cart-items">
-                <!-- Os itens do carrinho serão adicionados aqui via JavaScript -->
+
             </div>
             <div class="cart-total">
-                <strong>Total:</strong> <span id="cart-total-price">R$ 0,00</span>
+              <strong>Total:</strong> <span id="cart-total-price">R$ 0,00</span>
             </div>
-            <div class="cart-buttons">
-                <button id="clear-cart" class="btn-secondary">Limpar</button>
-                <button id="request-quote" class="btn-primary">Solicitar Orçamento</button>
-            </div>
-            </div>
+          </div>
+      
+          <div class="cart-buttons">
+            <button id="clear-cart" class="btn-secondary">Limpar</button>
+            <button id="request-quote" class="btn-primary">Solicitar Orçamento</button>
+          </div>
+      
         </div>
-    </div>
+      </div>
+      
 
     <footer>
         <div class="container">
