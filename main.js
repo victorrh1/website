@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupEventListeners();
     loadCartFromStorage();
     updateCartUI();
+    setupThemeToggle();
 });
 
 
@@ -45,10 +46,98 @@ function setupEventListeners() {
             });
         });
     }
-    
-    
-}
-    
+
+    // Configuração do carrossel
+    const trabalhos = document.querySelector('.trabalhos');
+    const items = document.querySelectorAll('.trabalhos-item');
+    const prevButton = document.querySelector('.carousel-button.prev');
+    const nextButton = document.querySelector('.carousel-button.next');
+    let currentIndex = 0;
+    let intervalId;
+
+    if (trabalhos && items.length > 0) {
+        // Função para rolar para um item específico
+        function scrollToItem(index) {
+            const itemWidth = items[0].offsetWidth;
+            const gap = 20; // O gap definido no CSS
+            trabalhos.scrollTo({
+                left: (itemWidth + gap) * index,
+                behavior: 'smooth'
+            });
+        }
+
+        // Função para ir para o próximo item
+        function scrollToNext() {
+            currentIndex = (currentIndex + 1) % items.length;
+            scrollToItem(currentIndex);
+        }
+
+        // Função para ir para o item anterior
+        function scrollToPrev() {
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            scrollToItem(currentIndex);
+        }
+
+        // Iniciar o carrossel automático
+        function startAutoScroll() {
+            stopAutoScroll();
+            intervalId = setInterval(scrollToNext, 5000); // Rola a cada 5 segundos
+        }
+
+        // Parar o carrossel automático
+        function stopAutoScroll() {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+        }
+
+        // Eventos dos botões de navegação
+        if (nextButton && prevButton) {
+            nextButton.addEventListener('click', () => {
+                stopAutoScroll();
+                scrollToNext();
+                startAutoScroll();
+            });
+
+            prevButton.addEventListener('click', () => {
+                stopAutoScroll();
+                scrollToPrev();
+                startAutoScroll();
+            });
+        }
+
+        // Eventos de mouse
+        trabalhos.addEventListener('mouseenter', stopAutoScroll);
+        trabalhos.addEventListener('mouseleave', startAutoScroll);
+
+        // Eventos de touch para dispositivos móveis
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        trabalhos.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            stopAutoScroll();
+        }, { passive: true });
+
+        trabalhos.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const difference = touchStartX - touchEndX;
+
+            if (Math.abs(difference) > 50) { // Mínimo de 50px para considerar como swipe
+                if (difference > 0) {
+                    scrollToNext();
+                } else {
+                    scrollToPrev();
+                }
+            }
+
+            startAutoScroll();
+        }, { passive: true });
+
+        // Iniciar o carrossel
+        startAutoScroll();
+    }
 
     addToCartButtons.forEach(button => {
         button.addEventListener('click', addToCart);
@@ -115,6 +204,7 @@ function setupEventListeners() {
 
     // Scroll da página para ativar elementos
     window.addEventListener('scroll', revealOnScroll);
+}
 
 
 // Funções do Carrinho
@@ -254,7 +344,7 @@ function requestQuote() {
     message += `\nValor Total: R$ ${total.toFixed(2)}\n\nObrigado!`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/5534984295831?text=${encodedMessage}`;
+    const whatsappURL = `https://wa.me/5534999629712?text=${encodedMessage}`;
 
     window.open(whatsappURL, '_blank');
 }
@@ -287,3 +377,44 @@ function revealOnScroll() {
         }
     });
 }
+
+// Função para configurar o alternador de tema
+function setupThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    // Carrega o tema salvo ou usa a preferência do sistema
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme === 'dark');
+    } else if (prefersDarkScheme.matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        updateThemeIcon(true);
+    }
+
+    // Alterna o tema quando o botão é clicado
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme === 'dark');
+    });
+}
+
+// Atualiza o ícone do botão de tema
+function updateThemeIcon(isDark) {
+    const themeToggle = document.getElementById('theme-toggle');
+    const icon = themeToggle.querySelector('i');
+    
+    if (isDark) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    }
+}
+

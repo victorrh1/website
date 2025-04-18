@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gustavo - Informatica</title>
+    <title>GRW - Informatica</title>
     <link rel="stylesheet" href="styles/styles.css" media="screen" />
+    <link rel="shortcut icon" href="images/torre-de-pc.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -21,20 +22,76 @@
               <a href="#trabalhos">Trabalhos</a>
               <a href="#contato">Contato</a>
             </nav>
-            <div class="cart-icon">🛒 <span id="cart-count">0</span></div>
+            <div class="theme-cart-container">
+              <button id="theme-toggle" class="theme-toggle">
+                <i class="fas fa-moon"></i>
+              </button>
+              <div class="cart-icon">🛒 <span id="cart-count">0</span></div>
+            </div>
           </div>
         </div>
       </header>
       
-
+    <!---->
     <section id="inicio" class="hero-section">
             <div class="hero-image">
                 <div class="bg-scroll"> 
                 <img src="images/9.webp" alt="Gustavo" width="1420" height="220">
             </div>
         </div>
-    </section>
 
+    <section id="trabalhos" class="trabalhos-section">
+        <div class="trabalhos-container">
+            <div class="trabalhos-header">
+                <h2>Nossos Trabalhos</h2>
+            </div>
+            <div class="trabalhos">
+                <!-- Trabalho 1 -->
+                <div class="trabalhos-item">
+                    <img src="images/mae.jpg" alt="Foto 1">
+                    <div class="trabalhos-overlay">
+                        <h3>Placa Mãe</h3>
+                        <p>Descrição breve do projeto</p>
+                        <a href="#" class="btn-secondary">Ver Detalhes</a>
+                    </div>
+                </div>
+                <!-- Trabalho 2 -->
+                <div class="trabalhos-item">
+                    <img src="images/antesdepois.jpg" alt="Foto 2">
+                    <div class="trabalhos-overlay">
+                        <h3>Limpeza Preventiva</h3>
+                        <p>Descrição breve do projeto</p>
+                        <a href="#" class="btn-secondary">Ver Detalhes</a>
+                    </div>
+                </div>
+                <!-- Trabalho 3 -->
+                <div class="trabalhos-item">
+                    <img src="images/monta.jpg" alt="Foto 3">
+                    <div class="trabalhos-overlay">
+                        <h3>Manutenção</h3>
+                        <p>Descrição breve do projeto</p>
+                        <a href="#" class="btn-secondary">Ver Detalhes</a>
+                    </div>
+                </div>
+                <!-- Trabalho 4 -->
+                <div class="trabalhos-item">
+                    <img src="images/reparo.webp" alt="Foto 4">
+                    <div class="trabalhos-overlay">
+                        <h3>Reparo</h3>
+                        <p>Descrição breve do projeto</p>
+                        <a href="#" class="btn-secondary">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <button class="carousel-button prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-button next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+</section>
+<div style="height: 180px;"></div>
+    <!--
     <section id="sobre" class="about-section">
         <div class="container">
             <div style="text-align:center">
@@ -47,12 +104,15 @@
                     <div style="text-align:center">
                     <img src="images/4.webp"class="scroll" alt="Mais sobre o profissional" width="500" height="600">
                 </div>
+                
                 </div>
+                
                 <div class="about-text">
                     <p>Olá, me chamo Gustavo e trabalho com informática, mais especificamente com hardware, há mais de 15 anos. Sou aquele cara que cuida das peças e componentes, fazendo reparos, upgrades e garantindo que tudo funcione como deveria. Amo encontrar soluções práticas e resolver qualquer problema que apareça, sempre com o objetivo de deixar os equipamentos em plena forma.
 
                     </p>
                     <p>Estou sempre ligado nas novidades do mundo da tecnologia, principalmente quando se trata de hardware, porque as coisas mudam rápido. Além disso, gosto de conversar de forma simples e tranquila, para que todo mundo entenda o que está acontecendo com as máquinas e o que pode ser feito. Se precisar de alguém para cuidar do hardware e trazer resultados, conta comigo!</p>
+                   -->
                     <!-- Cards -->
         <div class="skills-card">
             <div class="skills-header">
@@ -194,51 +254,7 @@
         </div>
     </section>
 
-    <section id="trabalhos" class="trabalhos-section">
-        <div class="container">
-            <div class="trabalhos-header">
-                <h2>Trabalhos</h2>
-        </div>
-        <!-- Trabalho 1 -->
-            <div class="trabalhos">
-                <div class="trabalhos-item">
-                    <img src="images/portfolio1.jpg" alt="Foto 1">
-                    <div class="trabalhos-overlay">
-                        <h3>Projeto 1</h3>
-                        <p>Descrição breve do projeto</p>
-                        <a href="#" class="btn-secondary">Ver Detalhes</a>
-                    </div>
-                </div>
-                <!-- Trabalho 2 -->
-                <div class="trabalhos-item">
-                    <img src="images/portfolio2.jpg" alt="Foto 2">
-                    <div class="trabalhos-overlay">
-                        <h3>Projeto 2</h3>
-                        <p>Descrição breve do projeto</p>
-                        <a href="#" class="btn-secondary">Ver Detalhes</a>
-                    </div>
-                </div>
-                <!-- Trabalho 3 -->
-                <div class="trabalhos-item">
-                    <img src="images/portfolio3.jpg" alt="Foto 3">
-                    <div class="trabalhos-overlay">
-                        <h3>Projeto 3</h3>
-                        <p>Descrição breve do projeto</p>
-                        <a href="#" class="btn-secondary">Ver Detalhes</a>
-                    </div>
-                </div>
-                <!-- Trabalho 4 -->
-                <div class="trabalhos-item">
-                    <img src="images/portfolio4.jpg" alt="Foto 4">
-                    <div class="trabalhos-overlay">
-                        <h3>Projeto 4</h3>
-                        <p>Descrição breve do projeto</p>
-                        <a href="#" class="btn-secondary">Ver Detalhes</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <section id="contato" class="contact-section">
         <div class="container">
@@ -251,7 +267,7 @@
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <p>(34) 9 8429-5831</p>
+                        <p>(34) 9 9962-9712</p>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
